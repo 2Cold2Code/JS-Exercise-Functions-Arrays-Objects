@@ -380,7 +380,7 @@ function carMaker( /* code here */ odom) {
     /* code here */
     const Car = {
         odometer: odom,
-        drive: drive = (distance) => this.odometer += distance
+        drive: function(distance) { return this.odometer += distance }
     }
     return Car;
 }
