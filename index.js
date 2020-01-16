@@ -270,15 +270,20 @@ function sortCarInventory( /* code here */ inventory) {
  */
 function getModelYears( /* code here */ list) {
     /* code here */
+    //create an array that will hold the new list
     let newList = [];
+
+    //loop through the array to access each object.  identify the property to be worked with
     for (let i = 0; i < list.length; i++) {
-        function newlist(arr) {
-            return arr[i].car_year;
-            newList = newlist(list);
-        }
+        //create an array value and assign the passed array's index and property value to it:
+        const year = list[i].car_year;
+        // push items to newList array
+        newList.push(year);
+        // return the values in year array
     }
     return newList;
 }
+
 
 /**
  * ### Challenge `getOlderCars`
@@ -294,15 +299,19 @@ function getModelYears( /* code here */ list) {
  */
 function getOlderCars( /* code here */ arr, yearMax) {
     /* code here */
+    //create an array to hold the final values:
     const cars = [];
+    // create a loop to go through each item
     for (let i = 0; i < arr.length; i++) {
+        // condition to pass a car into an array or not:
         if (arr[i].car_year <= yearMax) {
-            cars[i] = arr[i];
-            cars.splice(cars.indexOf(" "), 1);
+            //variable to hold the values passed:
+            const holdCars = arr[i];
+            //place the values in cars array:
+            cars.push(holdCars);
         }
-        return cars;
-
     }
+    return cars;
 }
 
 /**
