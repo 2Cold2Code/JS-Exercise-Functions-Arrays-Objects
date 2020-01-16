@@ -277,10 +277,11 @@ function getModelYears( /* code here */ list) {
     for (let i = 0; i < list.length; i++) {
         //create an array value and assign the passed array's index and property value to it:
         const year = list[i].car_year;
+
         // push items to newList array
         newList.push(year);
-        // return the values in year array
     }
+    // return the values in year array
     return newList;
 }
 
@@ -325,10 +326,21 @@ function getOlderCars( /* code here */ arr, yearMax) {
  * made by either `Audi` or `Mercedes-Benz` or `Volkswagen` or `BMW`,
  * in the same order as they appear in the original inventory.
  */
-function getGermanCars( /* code here */ ) {
+function getGermanCars( /* code here */ list) {
     /* code here */
-}
+    //create empty array to hold final values:
+    const german = [];
 
+    // loop through all items in passed array:
+    for (let i = 0; i < list.length; i++) {
+
+        //check for german or not. if german, passed at end of iteration to german variable:
+        if (list[i].car_make === 'Audi' || list[i].car_make === 'Mercedes-Benz' || list[i].car_make === 'Volkswagen' || list[i].car_make === 'BMW') {
+            german.push(list[i]);
+        }
+    }
+    return german;
+}
 /**
  * ### Challenge refactor to arrow functions
  * 
