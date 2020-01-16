@@ -241,25 +241,22 @@ function getCarInfoById( /* code here */ list, idIn) {
  */
 function sortCarInventory( /* code here */ inventory) {
     /* code here */
-    let arrPresort = [];
+    const compareCars = [];
     for (let i = 0; i < inventory.length; i++) {
-
-        arrPresort.push(`${inventory[i].car_model}`);
-        arrPresort.toLowerCase();
-        const sorted = arrPresort.pop();
-        sorted.sort();
-
-        // arrPresort.push(inventory[i].car_model);
-        // for (let upper = 0; upper < arrPresort.length; upper++) {
-        //     arrPresort[upper].toUpperCase();
-        // }
-
-        // function sorted(arr) {
-        //     arr.sort((a, b) => a < b ? 1 : a < b ? -1 : 0);
-        // }
-        // return sorted(arrPresort);
+        compareCars.push(inventory[i]);
+        compareCars.sort((a, b) => a.car_model > b.car_model ? 1 : a.car_model < b.car_model ? -1 : 0);
     }
-    return sorted;
+    return compareCars;
+
+    // arrPresort.push(inventory[i].car_model);
+    // for (let upper = 0; upper < arrPresort.length; upper++) {
+    //     arrPresort[upper].toUpperCase();
+    // }
+
+    // function sorted(arr) {
+    //     arr.sort((a, b) => a < b ? 1 : a < b ? -1 : 0);
+    // }
+    // return sorted(arrPresort);
 }
 
 /**
@@ -277,8 +274,8 @@ function getModelYears( /* code here */ list) {
     for (let i = 0; i < list.length; i++) {
         function newlist(arr) {
             return arr[i].car_year;
+            newList = newlist(list);
         }
-        newList = newlist(list);
     }
     return newList;
 }
@@ -297,8 +294,8 @@ function getModelYears( /* code here */ list) {
  */
 function getOlderCars( /* code here */ arr, yearMax) {
     /* code here */
+    const cars = [];
     for (let i = 0; i < arr.length; i++) {
-        const cars = [];
         if (arr[i].car_year <= yearMax) {
             cars[i] = arr[i];
             cars.splice(cars.indexOf(" "), 1);
